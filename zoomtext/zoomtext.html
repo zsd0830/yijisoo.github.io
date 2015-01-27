@@ -7,16 +7,29 @@
   <script src="jquery.mousewheel.js" charset="utf-8"></script>
   <style type="text/css">
     #box {
-      min-height: 10px;
+      margin-left: 200px;
+      padding: 1em 1em 1em 1em;
+      width: 50%;
+      min-height: 20px;
       /*height: auto;*/
       /*background-color: red;*/
       border: 2px solid gray;
     }
+
+    html {
+      height: 90%;
+    }
+
+    body {
+      min-height: 90%;
+    }
   </style>
 </head>
 <body>
-  <div id="box"></div>
   <p>zoom level: <span id="zoom_level">10</span></p>
+
+  <div id="box"></div>
+
   <script type="text/javascript">
     var stringObject = {
       "string": [
@@ -157,7 +170,7 @@
       update_text();
     });
 
-    $('#box').on('mousewheel', function(event) {
+    $('body').on('mousewheel', function(event) {
       console.log(event.deltaX, event.deltaY, event.deltaFactor);
       update_current_zoom_level(event.deltaY);
       update_text();
