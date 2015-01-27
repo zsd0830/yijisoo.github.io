@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>zoomtext</title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="jquery-1.11.2.js" charset="utf-8"></script>
+  <script src="jquery.mousewheel.js" charset="utf-8"></script>
+  <style type="text/css">
+    #box {
+      min-height: 10px;
+      /*height: auto;*/
+      /*background-color: red;*/
+      border: 2px solid gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <p>zoom level: <span id="zoom_level">10</span></p>
+  <script type="text/javascript">
+    var stringObject = {
+      "string": [
+        {"text": "There ", "level":   5},
+        {"text": "could ", "level":   5},
+        {"text": "be ", "level":      5},
+        {"text": "many ", "level":    6},
+        {"text": "things ", "level": 7},
+        {"text": "wrong. ", "level": 7},
+        {"text": "Even ", "level": 2},
+        {"text": "just ", "level": 6},
+        {"text": "sitting ", "level": 6},
+        {"text": "all ", "level": 6},
+        {"text": "the ", "level": 6},
+        {"text": "time, ", "level": 6},
+        {"text": "but ", "level": 3},
+        {"text": "I ", "level": 1},
+        {"text": "know ", "level": 1},
+        {"text": "with ", "level": 1},
+        {"text": "me ", "level": 1},
+        {"text": "I ", "level": 1},
+        {"text": "was ", "level": 2},
+        {"text": "diagnosed ", "level":5},
+        {"text": "with ", "level": 3},
+        {"text": "follicular ", "level": 10},
+        {"text": "nonhodgskins ", "level": 10},
+        {"text": "lymphoma, ", "level": 10},
+        {"text": "but ", "level": 3},
+        {"text": "I ", "level": 1},
+        {"text": "also ", "level": 4},
+        {"text": "had ", "level": 4},
+        {"text": "a ", "level": 1},
+        {"text": "spleen ", "level": 10},
+        {"text": "taken ", "level": 10},
+        {"text": "out ", "level": 10},
+        {"text": "6 ", "level": 9},
+        {"text": "months ", "level": 9},
+        {"text": "before ", "level": 9},
+        {"text": "that ", "level": 2},
+        {"text": "and ", "level": 3},
+        {"text": "that ", "level": 2},
+        {"text": "was ", "level": 2},
+        {"text": "cancer ", "level": 10},
+        {"text": "and ", "level": 1},
+        {"text": "that's ", "level": 2},
+        {"text": "why ", "level": 3},
+        {"text": "I ", "level": 1},
+        {"text": "had ", "level": 2},
+        {"text": "the ", "level": 3},
+        {"text": "achy ", "level": 6},
+        {"text": "back, ", "level": 6},
+        {"text": "because ", "level": 3},
+        {"text": "there ", "level": 1},
+        {"text": "was ", "level": 1},
+        {"text": "cancer. ", "level": 7},
+        {"text": "Another ", "level": 2},
+        {"text": "thing ", "level": 2},
+        {"text": "is ", "level": 1},
+        {"text": "about ", "level": 2},
+        {"text": "15 ", "level": 10},
+        {"text": "years ", "level": 10},
+        {"text": "ago ", "level": 10},
+        {"text": "I ", "level": 1},
+        {"text": "had ", "level": 1},
+        {"text": "a ", "level": 2},
+        {"text": "fibroid ", "level": 10},
+        {"text": "tumor ", "level": 10},
+        {"text": "that ", "level": 1},
+        {"text": "was ", "level": 1},
+        {"text": "pushing ", "level": 7},
+        {"text": "on ", "level": 3},
+        {"text": "my ", "level": 3},
+        {"text": "intestines ", "level": 7},
+        {"text": "and ", "level": 1},
+        {"text": "bladder ", "level": 7},
+        {"text": "and ", "level": 1},
+        {"text": "was ", "level": 3},
+        {"text": "giving ", "level": 3},
+        {"text": "me ", "level": 2},
+        {"text": "some ", "level": 2},
+        {"text": "problems. ", "level": 3},
+        {"text": "So ", "level": 1},
+        {"text": "it ", "level": 1},
+        {"text": "doesn't ", "level": 4},
+        {"text": "mean ", "level": 5},
+        {"text": "it's ", "level": 6},
+        {"text": "cancer. ", "level": 6},
+        {"text": "It ", "level": 5},
+        {"text": "could ", "level": 5},
+        {"text": "be ", "level": 5},
+        {"text": "a ", "level": 3},
+        {"text": "number ", "level": 8},
+        {"text": "of ", "level": 3},
+        {"text": "things ", "level": 2},
+        {"text": "going. ", "level": 3},
+        {"text": "The ", "level": 0},
+        {"text": "best ", "level": 8},
+        {"text": "thing ", "level": 1},
+        {"text": "to ", "level": 2},
+        {"text": "do, ", "level": 5},
+        {"text": "is ", "level": 2},
+        {"text": "if ", "level": 1},
+        {"text": "the ", "level": 9},
+        {"text": "pain ", "level": 2},
+        {"text": "is ", "level": 8},
+        {"text": "still ", "level": 9},
+        {"text": "there ", "level": 2},
+        {"text": "for ", "level": 8},
+        {"text": "quite ", "level": 7},
+        {"text": "some ", "level": 6},
+        {"text": "time, ", "level": 8},
+        {"text": "you ", "level": 6},
+        {"text": "should ", "level": 5},
+        {"text": "go ", "level": 9},
+        {"text": "to ", "level": 9},
+        {"text": "the ", "level": 9},
+        {"text": "doctor ", "level": 9},
+        {"text": "and ", "level": 2},
+        {"text": "have ", "level": 3},
+        {"text": "him ", "level": 1},
+        {"text": "or ", "level": 5},
+        {"text": "her ", "level": 9},
+        {"text": "check ", "level": 4},
+        {"text": "it ", "level": 2},
+        {"text": "out. ", "level": 1},
+        {"text": "Good ", "level": 1},
+        {"text": "luck. ", "level": 1}
+     ]
+    }
+
+    var ZOOM_MIN = 0;
+    var ZOOM_STEP = 1;
+    var ZOOM_MAX = 10;
+
+    var current_zoom_level = 10;
+
+    $(function() {
+      update_text();
+    });
+
+    $('#box').on('mousewheel', function(event) {
+      console.log(event.deltaX, event.deltaY, event.deltaFactor);
+      update_current_zoom_level(event.deltaY);
+      update_text();
+    });
+
+    function update_current_zoom_level(direction) {
+      if (direction === 0) {
+        return;
+      }
+
+      current_zoom_level += (direction / Math.abs(direction)) * ZOOM_STEP;
+
+      if (current_zoom_level < ZOOM_MIN) {
+        current_zoom_level = ZOOM_MIN;
+      }
+      if (current_zoom_level > ZOOM_MAX) {
+        current_zoom_level = ZOOM_MAX;
+      }
+      $("#zoom_level").html(current_zoom_level);
+    }
+
+    function update_text() {
+      var html = "";
+
+      for (var i = 0; i < stringObject.string.length; i++) {
+        level_gap = stringObject.string[i].level - (ZOOM_MAX - current_zoom_level);
+
+        if (level_gap > -5) {
+          html += "<span style='font-size:";
+          html += (level_gap < 0) ? (100 + level_gap * 10) : 100;
+          html += "%'>";
+          html += stringObject.string[i].text;
+          html += "</span>\n";
+        }
+        else {
+          html += "<span>-</span>";
+        }
+      }
+      $('#box').html(html);
+    }
+  </script>
+</body>
+</html>
