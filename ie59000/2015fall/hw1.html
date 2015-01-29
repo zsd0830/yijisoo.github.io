@@ -18,16 +18,8 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container" >
 		<h1>IE59000 HW1 Spring 2015 </h1>	
-
-		<script type = "text/javascript">
-			d3.csv("hw1.csv", function(data){
-				d = data;
-				console.log(d);
-
-			});
-		</script>
 
 		<table class="table table-striped">
 			<thead>
@@ -37,12 +29,31 @@
 				</tr>	
 			</thead>
 
-			<tbody>
+			<tbody id="tableBody">
 				<tr>
-					<td><a href="http://acarismendy.github.io/HW1AndreaArismendy/" target="_blank">Andrea Arismendy</a></td>
-					<td><a href="https://github.com/acarismendy/HW1AndreaArismendy/tree/gh-pages" target="_blank">View Source</a></td>
+					<td id="name"><a id="page_link" href="#" target="_blank">Name</a></td>
+					<td id="source"><a id="source_link" href="#" target="_blank">View Source</a></td>
 				</tr>
+				<tr>
+				<script type = "text/javascript">
+					d3.csv("hw1.csv", function(data){
+						data.forEach(function(d){
+							console.log(d.first_name);
+							console.log(d.last_name);
+							console.log(d.github_page);
+							console.log(d.source_code);
+							document.getElementById("tableBody").appendChild('tr');
+							// document.getElementById("page_link").setAttribute('href', "d.github_page");
+							// document.write('<tr>');
+							// document.write('<td>' + '<a href="' + d.github_page + '" target="_blank">' + d.first_name + ' ' + d.last_name + '</a>' +'</td>');
+							// document.write("</tr>");
+
+						});
+					});
+				</script>			
+			</tr>	
 			</tbody>
+
 		</table>
 
 	</div>
