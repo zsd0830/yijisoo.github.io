@@ -1,1 +1,83 @@
-<a href="hw1.html">HW1</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>IE59000</title>
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
+</head>
+
+<body>
+	<div class="container">
+		<h1>IE59000 Spring 2015</h1>	
+
+		<h2>HW2</h2>
+
+		<table id="hw2_table" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>URL</th>
+				</tr>	
+			</thead>
+		</table>
+
+		<h2>Projects</h2>
+
+		<table id="project_table" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>URL</th>
+				</tr>	
+			</thead>
+		</table>
+
+	</div>
+
+	<script type="text/javascript">
+		// Refer to more details below
+		// http://stackoverflow.com/questions/5996805/jquery-json-to-table
+		$.getJSON('./hw2/hw2.json', {/*somedata*/}, function(json_data){
+		    var table_obj = $('#hw2_table');
+		    $.each(json_data, function(index, item){
+		         var table_row = $('<tr>');
+
+		         var table_cell1 = $('<td>', {html: item.fname + ' ' + item.lname});
+		         table_row.append(table_cell1);
+
+		         var table_cell2 = $('<td>', {html: '<a href="' + item.url + '">' + item.url + '</a>'});
+		         table_row.append(table_cell2);
+
+		         table_obj.append(table_row);
+		    });
+		});
+
+		$.getJSON('./projects/projects.json', {/*somedata*/}, function(json_data){
+		    var table_obj = $('#project_table');
+		    $.each(json_data, function(index, item){
+		         var table_row = $('<tr>');
+
+		         var table_cell1 = $('<td>', {html: item.team_name});
+		         table_row.append(table_cell1);
+
+		         var table_cell2 = $('<td>', {html: '<a href="' + item.url + '">' + item.url + '</a>'});
+		         table_row.append(table_cell2);
+
+		         table_obj.append(table_row);
+		    });
+		});
+	</script>
+
+</body>
+
+</html>
