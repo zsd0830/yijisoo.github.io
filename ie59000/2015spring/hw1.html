@@ -43,11 +43,19 @@
 		         var table_row_start = $('<tr>');
 		         var table_row_end = $('</tr>');
 
-		         var table_data1 = $('<td>', {html: '<a href="' + item.github_page + '" target="_blank">' + item.first_name + ' ' + item.last_name});
-		         table_row_start.append(table_data1);
+		        if (!item.github_page) {
+		       		var table_data1 = $('<td>', {html: item.first_name + ' ' + item.last_name});
+		       	} else {
+		       		var table_data1 = $('<td>', {html: '<a href="' + item.github_page + '" target="_blank">' + item.first_name + ' ' + item.last_name});
+		       	}
+		        table_row_start.append(table_data1);
 
-		         var table_data2 = $('<td>', {html: '<a href="' + item.source_code + '" target="_blank">' + 'Source' + '</a>'});
-		         table_row_start.append(table_data2);
+		        if (!item.source_code) {
+		        	var table_data2 = $('<td>', {html: 'Source'})
+		        } else {
+		        	var table_data2 = $('<td>', {html: '<a href="' + item.source_code + '" target="_blank">' + 'Source' + '</a>'});
+		        }
+		        table_row_start.append(table_data2);
 
 		         table_obj.append(table_row_start).append(table_row_end);
 		    });
