@@ -43,11 +43,11 @@
 		         var table_row_start = $('<tr>');
 		         var table_row_end = $('</tr>');
 
-		         var table_cell1 = $('<td>', {html: '<a href="' + item.github_page + '">' + item.first_name + ' ' + item.last_name});
-		         table_row_start.append(table_cell1);
+		         var table_data1 = $('<td>', {html: '<a href="' + item.github_page + '">' + item.first_name + ' ' + item.last_name});
+		         table_row_start.append(table_data1);
 
-		         var table_cell2 = $('<td>', {html: '<a href="' + item.source_code + '">' + 'Source' + '</a>'});
-		         table_row_start.append(table_cell2);
+		         var table_data2 = $('<td>', {html: '<a href="' + item.source_code + '">' + 'Source' + '</a>'});
+		         table_row_start.append(table_data2);
 
 		         table_obj.append(table_row_start).append(table_row_end);
 		    });
