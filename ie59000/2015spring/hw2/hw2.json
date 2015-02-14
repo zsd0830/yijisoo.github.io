@@ -1,5 +1,6 @@
-[{"lname":"Arismendy","fname":"Andrea ","url":"http://acarismendy.github.io/HW2Andrea-Arismendy/"},
-{"lname":"Black","fname":"Jeremy","url":"[your_url_here]"},
+[
+{"lname":"Arismendy","fname":"Andrea ","url":"http://acarismendy.github.io/HW2Andrea-Arismendy/"},
+{"lname":"Black","fname":"Jeremy","url":"http://jeremyb311.github.io/HW2.html"},
 {"lname":"Denison","fname":"Nathan","url":"[your_url_here]"},
 {"lname":"Du","fname":"Weidan","url":"[your_url_here]"},
 {"lname":"Ernst","fname":"Katie ","url":"[your_url_here]"},
@@ -25,4 +26,5 @@
 {"lname":"Xia","fname":"Wenxuan","url":"[your_url_here]"},
 {"lname":"Zhang","fname":"Shaodong","url":"[your_url_here]"},
 {"lname":"Zhang","fname":"Zixu","url":"[your_url_here]"},
-{"lname":"Zhao","fname":"Liang","url":"[your_url_here]"}]
+{"lname":"Zhao","fname":"Liang","url":"[your_url_here]"}
+]
