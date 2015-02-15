@@ -31,6 +31,17 @@
 			</thead>
 		</table>
 
+		<h2>HW3</h2>
+
+		<table id="hw3_table" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>URL</th>
+				</tr>	
+			</thead>
+		</table>
+
 		<h2>Projects</h2>
 
 		<table id="project_table" class="table table-striped">
@@ -49,6 +60,21 @@
 		// http://stackoverflow.com/questions/5996805/jquery-json-to-table
 		$.getJSON('./hw2/hw2.json', {/*somedata*/}, function(json_data){
 		    var table_obj = $('#hw2_table');
+		    $.each(json_data, function(index, item){
+		         var table_row = $('<tr>');
+
+		         var table_cell1 = $('<td>', {html: item.fname + ' ' + item.lname});
+		         table_row.append(table_cell1);
+
+		         var table_cell2 = $('<td>', {html: '<a href="' + item.url + '">' + item.url + '</a>'});
+		         table_row.append(table_cell2);
+
+		         table_obj.append(table_row);
+		    });
+		});
+
+		$.getJSON('./hw3/hw3.json', {/*somedata*/}, function(json_data){
+		    var table_obj = $('#hw3_table');
 		    $.each(json_data, function(index, item){
 		         var table_row = $('<tr>');
 
