@@ -1,13 +1,13 @@
 [
-{"team_name":"DistantCollaborators","url":"http://distantcollaborators.github.io/index.html"},
-{"team_name":"Group PTA","url":"http://teampta.github.io/group.html"},
-{"team_name":"MQM","url":"http://MQM1.github.io"},
-{"team_name":"KBT-incorporated","url":"http://kbt-incorporated.github.io/index.html"},
-{"team_name":"Tars","url":"https://groupproject-zsdhza.github.io/"},
-{"team_name":"PatientCenteredCare","url":"http://hobbs12.github.io/IE590_HobbsErnst/"},
-{"team_name":"SuperChile","url":"http://datavisualizationam.github.io/Project_1/"},
-{"team_name":"VisualBoilers","url":"http://visualboilers.github.io/"},
-{"team_name":"Alone All Life","url":"http://alone-all-life.github.io/"},
-{"team_name":"RJVisuals","url":"http://jnahley.github.io/RJVisual.github.io/"},
-{"team_name":"Team A","url":"[your_url_here]"}
+{"name":"DistantCollaborators","url":"http://distantcollaborators.github.io/index.html"},
+{"name":"Group PTA","url":"http://teampta.github.io/group.html"},
+{"name":"MQM","url":"http://MQM1.github.io"},
+{"name":"KBT-incorporated","url":"http://kbt-incorporated.github.io/index.html"},
+{"name":"Tars","url":"https://groupproject-zsdhza.github.io/"},
+{"name":"PatientCenteredCare","url":"http://hobbs12.github.io/IE590_HobbsErnst/"},
+{"name":"SuperChile","url":"http://datavisualizationam.github.io/Project_1/"},
+{"name":"VisualBoilers","url":"http://visualboilers.github.io/"},
+{"name":"Alone All Life","url":"http://alone-all-life.github.io/"},
+{"name":"RJVisuals","url":"http://jnahley.github.io/RJVisual.github.io/"},
+{"name":"Team A","url":"[your_url_here]"}
 ]
