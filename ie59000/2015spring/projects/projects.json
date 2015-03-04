@@ -1,3 +1,13 @@
-[{"team_name":"DistantCollaborators","url":"[your_url_here]"},
-{"team_name":"Team A","url":"[your_url_here]"}
+[
+{"name":"DistantCollaborators","url":"http://distantcollaborators.github.io/index.html"},
+{"name":"Group PTA","url":"http://teampta.github.io/group.html"},
+{"name":"MQM","url":"http://MQM1.github.io"},
+{"name":"KBT-incorporated","url":"http://kbt-incorporated.github.io/index.html"},
+{"name":"Tars","url":"https://groupproject-zsdhza.github.io/"},
+{"name":"PatientCenteredCare","url":"http://patientcenteredcare.github.io/Project/"},
+{"name":"SuperChile","url":"http://datavisualizationam.github.io/Project_1/"},
+{"name":"VisualBoilers","url":"http://visualboilers.github.io/"},
+{"name":"Alone All Life","url":"http://alone-all-life.github.io/"},
+{"name":"RJVisuals","url":"http://jnahley.github.io/RJVisual.github.io/"},
+{"name":"Team A","url":"[your_url_here]"}
 ]
