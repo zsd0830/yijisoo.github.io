@@ -2,107 +2,154 @@
 <html lang="en">
 
 <head>
-	<title>IE59000</title>
-	<meta charset="utf-8">
-	<meta name="viewpoint" content="width=device-width, initial-scale=1">
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	
+  <title>IE59000</title>
+  <meta charset="utf-8">
+  <meta name="viewpoint" content="width=device-width, initial-scale=1">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <!-- D3 -->
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  
 </head>
 
 <body>
-	<div class="container">
-		<h1>IE59000 Spring 2015</h1>	
+  <div class="container">
+    <h1>IE59000 Spring 2015</h1>  
 
-		<h2>HW2</h2>
+    <a class="btn btn-default" href="#hw2" role="button">HW2</a>
+		<a class="btn btn-default" href="#hw3" role="button">HW3</a>
+    <a class="btn btn-default" href="#hw4" role="button">HW4</a>
+		<a class="btn btn-default" href="#projects" role="button">Projects</a>
 
-		<table id="hw2_table" class="table table-striped">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>URL</th>
-				</tr>	
-			</thead>
-		</table>
+    <h2 id="hw2">HW2</h2>
+    <table id="hw2_table" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>GitHub</th>
+        </tr> 
+      </thead>
+    </table>
 
-		<h2>HW3</h2>
+    <h2 id="hw3">HW3</h2>
+    <table id="hw3_table" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>GitHub</th>
+        </tr> 
+      </thead>
+    </table>
 
-		<table id="hw3_table" class="table table-striped">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>URL</th>
-				</tr>	
-			</thead>
-		</table>
+    <h2 id="hw4">HW4</h2>
+    <table id="hw4_table" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>GitHub</th>
+        </tr> 
+      </thead>
+    </table>
 
-		<h2>Projects</h2>
+    <h2 id="projects">Projects</h2>
+    <table id="project_table" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>GitHub</th>
+        </tr> 
+      </thead>
+    </table>
 
-		<table id="project_table" class="table table-striped">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>URL</th>
-				</tr>	
-			</thead>
-		</table>
+  </div>
 
-	</div>
+  <script type="text/javascript">
+    // Refer to more details below
+    // http://stackoverflow.com/questions/5996805/jquery-json-to-table
 
-	<script type="text/javascript">
-		// Refer to more details below
-		// http://stackoverflow.com/questions/5996805/jquery-json-to-table
-		$.getJSON('./hw2/hw2.json', {/*somedata*/}, function(json_data){
-		    var table_obj = $('#hw2_table');
-		    $.each(json_data, function(index, item){
-		         var table_row = $('<tr>');
+    var hw2_data, hw3_data, hw4_data, project_data;
 
-		         var table_cell1 = $('<td>', {html: item.fname + ' ' + item.lname});
-		         table_row.append(table_cell1);
+    function getGitHubURL(s) {
+      s = s.replace(/http:\/\//, "");
+      s = s.replace(/https:\/\//, "");
+      var github_index = s.search(/github.io/);
+      if (github_index < 0) {
+        return "[your_url_here]";
+      }
+      s = s.substr(0, github_index - 1);
+      return "https://github.com/" + s + "/" + s + ".github.io";
+    }
 
-		         var table_cell2 = $('<td>', {html: '<a href="' + item.url + '">' + item.url + '</a>'});
-		         table_row.append(table_cell2);
+    function tabularize(table_id, dataset) {
+      d3.select(table_id)
+        .append("tbody")
+        .selectAll("tr")
+        .data(dataset)
+        .enter()
+          .append("tr")
+          .call(function(selection) {
+            selection
+              .append("td")
+              .text(function(d) {
+                return d.name;
+              });
+            
+            selection
+              .append("td")
+              .append("a")
+              .attr("href", function(d) {
+                return d.url;
+              })
+              .text(function(d) {
+                return d.url;
+              });
 
-		         table_obj.append(table_row);
-		    });
-		});
+            selection
+              .append("td")
+              .append("a")
+              .attr("href", function(d) {
+                return getGitHubURL(d.url);
+              })
+              .text(function(d) {
+                return getGitHubURL(d.url);
+              });
+          });
+    }
 
-		$.getJSON('./hw3/hw3.json', {/*somedata*/}, function(json_data){
-		    var table_obj = $('#hw3_table');
-		    $.each(json_data, function(index, item){
-		         var table_row = $('<tr>');
+    d3.json('./hw2/hw2.json', function(error, json){
+      if (error) return console.warn(error);
+      hw2_data = json;
+      tabularize("#hw2_table", hw2_data);
+    })
 
-		         var table_cell1 = $('<td>', {html: item.fname + ' ' + item.lname});
-		         table_row.append(table_cell1);
+    d3.json('./hw3/hw3.json', function(error, json){
+      if (error) return console.warn(error);
+      hw3_data = json;
+      tabularize("#hw3_table", hw3_data);
+    })
 
-		         var table_cell2 = $('<td>', {html: '<a href="' + item.url + '">' + item.url + '</a>'});
-		         table_row.append(table_cell2);
+    d3.json('./hw4/hw4.json', function(error, json){
+      if (error) return console.warn(error);
+      hw4_data = json;
+      tabularize("#hw4_table", hw4_data);
+    })
 
-		         table_obj.append(table_row);
-		    });
-		});
-
-		$.getJSON('./projects/projects.json', {/*somedata*/}, function(json_data){
-		    var table_obj = $('#project_table');
-		    $.each(json_data, function(index, item){
-		         var table_row = $('<tr>');
-
-		         var table_cell1 = $('<td>', {html: item.team_name});
-		         table_row.append(table_cell1);
-
-		         var table_cell2 = $('<td>', {html: '<a href="' + item.url + '">' + item.url + '</a>'});
-		         table_row.append(table_cell2);
-
-		         table_obj.append(table_row);
-		    });
-		});
-	</script>
+    d3.json('./projects/projects.json', function(error, json){
+      if (error) return console.warn(error);
+      project_data = json;
+      tabularize("#project_table", project_data);
+    })
+  </script>
 
 </body>
 
