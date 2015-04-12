@@ -22,8 +22,12 @@
   <div class="container">
     <h1>IE59000 Spring 2015</h1>  
 
-    <h2>HW2</h2>
+    <a class="btn btn-default" href="#hw2" role="button">HW2</a>
+		<a class="btn btn-default" href="#hw3" role="button">HW3</a>
+    <a class="btn btn-default" href="#hw4" role="button">HW4</a>
+		<a class="btn btn-default" href="#projects" role="button">Projects</a>
 
+    <h2 id="hw2">HW2</h2>
     <table id="hw2_table" class="table table-striped">
       <thead>
         <tr>
@@ -34,8 +38,7 @@
       </thead>
     </table>
 
-    <h2>HW3</h2>
-
+    <h2 id="hw3">HW3</h2>
     <table id="hw3_table" class="table table-striped">
       <thead>
         <tr>
@@ -46,8 +49,18 @@
       </thead>
     </table>
 
-    <h2>Projects</h2>
+    <h2 id="hw4">HW4</h2>
+    <table id="hw4_table" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>URL</th>
+          <th>GitHub</th>
+        </tr> 
+      </thead>
+    </table>
 
+    <h2 id="projects">Projects</h2>
     <table id="project_table" class="table table-striped">
       <thead>
         <tr>
@@ -64,7 +77,7 @@
     // Refer to more details below
     // http://stackoverflow.com/questions/5996805/jquery-json-to-table
 
-    var hw2_data, hw3_data, project_data;
+    var hw2_data, hw3_data, hw4_data, project_data;
 
     function getGitHubURL(s) {
       s = s.replace(/http:\/\//, "");
@@ -123,6 +136,12 @@
       if (error) return console.warn(error);
       hw3_data = json;
       tabularize("#hw3_table", hw3_data);
+    })
+
+    d3.json('./hw4/hw4.json', function(error, json){
+      if (error) return console.warn(error);
+      hw4_data = json;
+      tabularize("#hw4_table", hw4_data);
     })
 
     d3.json('./projects/projects.json', function(error, json){
